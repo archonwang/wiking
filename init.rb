@@ -60,7 +60,7 @@ Redmine::Plugin.register :wiking do
     author_url 'http://www.andriylesyuk.com/'
     description 'Wiki Next Generation plugin that extends Redmine Wiki syntax.'
     url 'http://projects.andriylesyuk.com/projects/wiking'
-    version '1.0.0b'
+    version '1.1.0'
 
     project_module :wiki do
         permission :view_hidden_content, {}
@@ -69,5 +69,33 @@ Redmine::Plugin.register :wiking do
     menu :admin_menu, :custom_macros,
                     { :controller => 'macros', :action => 'index' },
                       :caption => :label_custom_wiki_macro_plural,
+                      :html => { :class => 'icon icon-custom-macros' },
                       :after => :custom_fields
+
+    settings :default => {
+        :autocomplete_debounce => 500
+    }, :partial => 'settings/wiking'
 end
+
+Redmine::WikiFormatting::Macros.register do
+    desc "Adds new Redmine hook to Wiki page and calls it. Example:\n\n  !{{wiking_hook(name, argument=value)}}"
+    macro :wiking_hook do |page, args|
+        if args.size > 0
+            hook = args.shift
+
+            params = []
+            options = {}
+            args.each do |arg|
+                if arg =~ %r{^([^=]+)=(.*)$}
+                    options[$1.downcase.to_sym] = $2
+                else
+                    params << arg
+                end
+            end
+
+            call_hook("wiking_hook_#{hook}", { :page => page, :args => params, :options => options })
+        end
+    end
+end
+
+WikiMacro.register_all! if ActiveRecord::Base.connection.table_exists?(:wiki_macros)

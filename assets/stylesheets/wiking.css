@@ -15,7 +15,7 @@ span.wiking-hidden {
 }
 div.wiking.flash {
     border-width: 1px;
-    background-position: 6px 3px;
+    background-position: 6px 6px;
     width: auto;
     overflow-x: auto;
     overflow-y: hidden;
@@ -27,6 +27,8 @@ div.wiking.warning {
 }
 div.wiking.notice {
     background-image: url(../images/notice.png);
+    background-position: 6px 4px;
+    background-repeat: no-repeat;
     background-color: #c5e7f8;
     border-color: #759fcf;
     color: #00365f;
@@ -58,18 +60,18 @@ span.wiking.marker-super {
 }
 span.wiking.marker-todo {
     background-image: url(../images/todo.png);
-    width: 72px;
-    height: 20px;
+    width: 34px;
+    height: 14px;
 }
 span.wiking.marker-fixme {
     background-image: url(../images/fixme.png);
-    width: 77px;
-    height: 20px;
+    width: 38px;
+    height: 14px;
 }
 span.wiking.marker-update {
     background-image: url(../images/update.png);
-    width: 87px;
-    height: 20px;
+    width: 46px;
+    height: 14px;
 }
 span.wiking.marker-new {
     background-image: url(../images/new-text.png);
@@ -254,9 +256,6 @@ a:active.wiking.button {
 .wiking.small {
     font-size: 0.75em;
 }
-dt.news-comments {
-    background-image: url(../images/news-comments.png);
-}
 .tab-content .contextual {
     margin-top: auto;
 }
@@ -266,4 +265,25 @@ dt.news-comments {
 .new_wiki_macro ul.argument-syntax, .edit_wiki_macro ul.argument-syntax {
     padding-left: 210px;
     margin: 0;
+}
+ul.textcomplete-dropdown {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.textcomplete-dropdown li.textcomplete-item {
+    padding: 3px 1em 3px 0.4em;
+    cursor: pointer;
+}
+ul.textcomplete-dropdown li.textcomplete-item.active {
+    background-color: #eef5fd;
+}
+ul.textcomplete-dropdown li.textcomplete-item a {
+    text-decoration: none;
+    color: #333;
+}
+ul.textcomplete-dropdown li.textcomplete-item.active a {
+    color: #628db6;
 }

@@ -5,6 +5,7 @@
     margin: 0;
 }
 div.wiking.flash {
+    background-position: 6px 3px;
     -moz-box-shadow: 1px 2px 2px #b4b4b4;
     box-shadow: 1px 2px 2px #b4b4b4;
     -moz-border-radius: 6px;
@@ -12,7 +13,7 @@ div.wiking.flash {
     margin: 1em 0;
 }
 div.wiking.warning {
-    background-position: 6px 4px;
+    background-position: 6px 5px;
 }
 div.wiking.notice {
     background-image: url(../images/red-andy/notice.png);
@@ -73,4 +74,23 @@ div.footnotes p.footnote > sup {
 }
 div.footnotes p.footnote > sup:after {
     content: " — ";
+}
+ul.textcomplete-dropdown {
+    -moz-box-shadow: 1px 3px 5px #b4b4b4;
+    box-shadow: 1px 3px 5px #b4b4b4;
+    background-color: white;
+    font-size: 9pt;
+    color: #555;
+}
+ul.textcomplete-dropdown li.textcomplete-item.active {
+    background-color: #536A3F;
+}
+ul.textcomplete-dropdown li.textcomplete-item.active a {
+    color: #fff;
+}
+ul.textcomplete-dropdown img.gravatar {
+    -moz-box-shadow: unset;
+    box-shadow: unset;
+    border: none;
+    padding: 0;
 }
